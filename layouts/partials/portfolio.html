@@ -1,5 +1,6 @@
 {{ "<!-- portfolio -->" | safeHTML }}
-<section id="two">
+{{ with .Site.Params.portfolio }}
+<section class="gallery">
 	{{ with .Site.Params.portfolio.title }}<h2>{{ . }}</h2>{{ end }}
 	<div class="row">
 		{{ range .Site.Params.portfolio.gallery }}
@@ -11,3 +12,4 @@
 		{{ end }}
 	</div>
 </section>
+{{ end }}

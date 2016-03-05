@@ -2,5 +2,61 @@
 	<header class="major">
 		{{ with .Site.Params.about.title }}<h2>{{ . | markdownify }}</h2>{{ end }}
 	</header>
-	{{ with .Site.Params.about.content }}<p>{{ . | markdownify }}</p>{{ end }}
+	{{ with .Site.Params.about.header }}<p>{{ . | markdownify }}</p>{{ end }}
+
+	<div class="row gallery">
+		{{ range .Site.Params.heading.gallery }}
+		<article class="4u work-item">
+			<a href="{{ .Site.BaseURL }}images/{{ .image }}" class="image fit thumb"><img src="{{ .Site.BaseURL }}images/{{ .thumb }}" alt="" /></a>
+		</article>
+		{{ end }}
+	</div>
+	{{ with .Site.Params.about.introduction }}<p>{{ . | markdownify }}</p>{{ end }}
+	<div class="row">
+		<div class="6u 12u$(small) align-center">
+			<iframe src="{{ .Site.Params.sidebar.teamingWidget }}/7?lang=ca_ES&TM=true"
+								  width="305" height="500" frameborder='0' scrolling="no" style="overflow: hidden;"></iframe>
+		</div>
+		<div class="6u$ 12u(small)">
+			{{ with .Site.Params.about.teaming }}<p>{{ . | markdownify }}</p>{{ end }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="8u 9u(small)">
+			{{ with .Site.Params.about.sideContent }}<p>{{ . | markdownify }}</p>{{ end }}
+		</div>
+		<div class="4u$ 3u$(small)">
+			<span class="image fit"><img src="{{ .Site.BaseURL }}images/{{ .Site.Params.sidebar.avatar }}" alt="" /></span>
+		</div>
+	</div>
+
+	{{ with .Site.Params.about.context }}<p>{{ . | markdownify }}</p>{{ end }}
+
+		<div class="row gallery">
+			{{ range .Site.Params.context.gallery }}
+			<article class="4u work-item">
+				<a href="{{ .Site.BaseURL }}images/{{ .image }}" class="image fit thumb"><img src="{{ .Site.BaseURL }}images/{{ .thumb }}" alt="" /></a>
+			</article>
+			{{ end }}
+		</div>
+	{{ with .Site.Params.sidebar.teaming }}
+		<iframe src="https://www.teaming.net/group/spread/widgets/yIgz45IHX9iGrsqNjCDFynGUicgD8p7EOulGTBG9F9tFe/2?lang=ca_ES"
+										width="100%" height=164 frameborder="0" scrolling="no" style="overflow: hidden"></iframe>
+	{{ end }}
+
+	<header class="small">
+		{{ with .Site.Params.about.historyTitle }}<h3>{{ . | markdownify }}</h3>{{ end }}
+	</header>
+	{{ with .Site.Params.about.history }}<p>{{ . | markdownify }}</p>{{ end }}
+
+		<div class="row gallery">
+			{{ range .Site.Params.history.gallery }}
+			<article class="4u work-item">
+				<a href="{{ .Site.BaseURL }}images/{{ .image }}" class="image fit thumb"><img src="{{ .Site.BaseURL }}images/{{ .thumb }}" alt="" /></a>
+			</article>
+			{{ end }}
+		</div>
+
+	{{ with .Site.Params.about.history }}<p>{{ . | markdownify }}</p>{{ end }}
+	{{ with .Site.Params.about.quote }}<p class="align-right">{{ . | markdownify }}</p>{{ end }}
 </section>
